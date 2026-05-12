@@ -1,1 +1,1 @@
-# STRATOSCRIC
+# Create a Coaching Simulator where fans make real-time decisions on field placements and bowling changes during the live IPL match. By comparing fan decisions with the captain’s actual moves and using historical data to score the "tactical merit" of their choices, the platform identifies and rewards the most knowledgeable cricket minds in the country.
