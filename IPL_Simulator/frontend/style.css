@@ -1,0 +1,127 @@
+/* 1. Global Variables & Base Setup */
+:root {
+    --primary-blue: #1a73e8;
+    --bg-light: #f8f9fa;
+    --white: #ffffff;
+    --text-dark: #202124;
+    --text-muted: #5f6368;
+    --border-color: #dadce0;
+    --accent-green: #34a853;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    margin: 0; padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+/* 2. Header Styling */
+.header {
+    background: var(--white);
+    border-bottom: 1px solid var(--border-color);
+    padding: 10px 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.app-logo { font-size: 1.4rem; font-weight: 800; }
+.app-logo span { color: var(--primary-blue); }
+
+/* --- 3. THE 3-COLUMN SYSTEM (FIXED ALIGNMENT) --- */
+.main-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start; /* Keeps columns docked at the top */
+    gap: 20px;
+    padding: 20px 40px;
+    width: 100vw;
+    box-sizing: border-box;
+    flex: 1;
+}
+
+/* HARD LOCKS: Prevents columns from stretching or wrapping */
+.column-left { 
+    flex: 0 0 750px; 
+}
+
+.column-middle { 
+    flex: 0 0 350px; 
+    display: flex;
+    flex-direction: column; /* Forces vertical stacking */
+    gap: 15px; /* Vertical gap between decision, probability, and chart */
+}
+
+.column-far-right { 
+    flex: 0 0 320px; 
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* 4. Common Containers & Cards */
+.scorecard-container, .insight-box {
+    background: var(--white);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    padding: 18px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    width: 100%; /* Ensures internal elements stay within column width */
+    box-sizing: border-box;
+}
+
+.insight-box {
+    margin-bottom: 0; /* Gaps are now handled by the column flex gap */
+}
+
+.chart-box {
+    margin-top: 0; /* Ensures it stacks immediately under probability */
+}
+
+.panel-header {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    border-bottom: 2px solid var(--primary-blue);
+    margin-bottom: 15px;
+    padding-bottom: 6px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* 5. Tables & Components */
+.live-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.live-table th { background: #f1f3f4; padding: 10px; text-align: left; color: var(--text-muted); }
+.live-table td { padding: 12px 10px; border-bottom: 1px solid var(--border-color); }
+.active-row { background: rgba(26, 115, 232, 0.05); font-weight: 600; }
+.bat-status { color: var(--accent-green); font-size: 0.7rem; background: rgba(52, 168, 83, 0.1); padding: 2px 6px; border-radius: 4px; }
+
+.vertical-button-group { display: flex; flex-direction: column; gap: 8px; }
+button { background: var(--primary-blue); color: white; border: none; padding: 11px; border-radius: 6px; cursor: pointer; font-weight: 600; transition: 0.2s; }
+button:hover { background: #1557b0; transform: scale(1.02); }
+
+.progress-bg { background: #e8eaed; height: 14px; border-radius: 7px; overflow: hidden; margin-top: 10px; }
+.progress-fill { background: var(--primary-blue); height: 100%; color: white; font-size: 0.65rem; text-align: right; padding-right: 10px; }
+
+/* 6. Visual Analytics (Fielding & Conditions) */
+.field-circle {
+    width: 60px; height: 80px;
+    border: 2px solid var(--accent-green);
+    border-radius: 50%;
+    margin: 0 auto; position: relative;
+    background: #f1f8f3;
+}
+.pitch-mini { width: 8px; height: 25px; background: #c2a679; position: absolute; top: 27px; left: 26px; }
+.fielder-point { width: 5px; height: 5px; background: red; border-radius: 50%; position: absolute; }
+.field-notes { font-size: 0.75rem; color: var(--text-muted); list-style: none; padding: 0; margin-top: 10px; text-align: center; }
+
+.condition-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 0.75rem; }
+.condition-grid span { font-weight: bold; }

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StratosCric | GT vs SRH Intelligence</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="header">
+        <div class="nav-container">
+            <div class="app-logo">STRATOS<span>CRIC</span></div>
+            <div class="match-info">GT vs SRH | IPL 2026</div>
+        </div>
+        <div class="scoreboard-summary">
+            <div id="match-ticker">DECISION WINDOW: 30s</div>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="column-left">
+            <div class="scorecard-container">
+                <div class="panel-header">GUJARAT TITANS INNINGS</div>
+                
+                <table class="live-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 40%;">Batter</th>
+                            <th>R</th><th>B</th><th>4s</th><th>6s</th><th>SR</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="active-row">
+                            <td>Shubman Gill* <span class="bat-status">batting</span></td>
+                            <td>42</td><td>28</td><td>5</td><td>1</td><td>150.00</td>
+                        </tr>
+                        <tr class="active-row">
+                            <td>Sai Sudharsan <span class="bat-status">batting</span></td>
+                            <td>15</td><td>12</td><td>1</td><td>0</td><td>125.00</td>
+                        </tr>
+                        <tr class="out-player">
+                            <td>Wriddhiman Saha</td>
+                            <td>10</td><td>8</td><td>2</td><td>0</td><td>125.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="bowler-stats-mini">
+                    <table class="live-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 40%;">Bowler (SRH)</th>
+                                <th>O</th><th>M</th><th>R</th><th>W</th><th>ECO</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Pat Cummins</td><td>3.0</td><td>0</td><td>22</td><td>1</td><td>7.33</td>
+                            </tr>
+                            <tr>
+                                <td>T. Natarajan</td><td>2.0</td><td>0</td><td>18</td><td>0</td><td>9.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="column-middle">
+            <div class="insight-box">
+                <div class="panel-header">CAPTAIN'S DECISION (SRH)</div>
+                <div class="vertical-button-group">
+                    <button onclick="makeDecision('Bhuvneshwar Kumar')">B. Kumar (Swing)</button>
+                    <button onclick="makeDecision('Mayank Markande')">M. Markande (Leg-Spin)</button>
+                    <button onclick="makeDecision('Nitish Reddy')">Nitish Reddy (Medium)</button>
+                </div>
+                <div id="feedback-area"></div>
+            </div>
+
+            <div class="insight-box">
+                <div class="panel-header">MATCH PROBABILITIES</div>
+                <div class="progress-bg">
+                    <div class="progress-fill" style="width: 52%;">52% (GT Favor)</div>
+                </div>
+            </div>
+
+            <div class="insight-box chart-box">
+                <div class="panel-header">GILL vs CUMMINS TREND</div>
+                <div style="height: 180px;">
+                    <canvas id="performanceChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="column-far-right">
+            <div class="insight-box">
+                <div class="panel-header">FIELDING ANALYSIS</div>
+                <div class="fielding-map">
+                    <div class="field-circle">
+                        <div class="pitch-mini"></div>
+                        <div class="fielder-point" style="top:15%; left:40%;"></div> 
+                        <div class="fielder-point" style="top:85%; left:60%;"></div> 
+                    </div>
+                    <ul class="field-notes">
+                        <li>• Deep Extra Cover active</li>
+                        <li>• Short Third Man tight</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <div class="panel-header">PITCH REPORT</div>
+                <div class="condition-grid">
+                    <div class="cond-item"><span>SURFACE:</span> Dry/Hard</div>
+                    <div class="cond-item"><span>TURN:</span> 2.1° Avg</div>
+                    <div class="cond-item"><span>BOUNCE:</span> High</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
